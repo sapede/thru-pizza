@@ -1,2 +1,2 @@
-# thru-pizza
+# ThruPizza
 Sistema para uma pizzaria Drive Thru
