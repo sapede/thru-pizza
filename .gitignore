@@ -1,6 +1,8 @@
 # Compiled class file
 *.class
 
+./ThruPizza-front/thru-piza-front/node_modules/*
+
 # Log file
 *.log
 
