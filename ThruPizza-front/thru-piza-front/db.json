@@ -1,0 +1,133 @@
+{
+  "funcionario": [
+    {
+      "id": 1,
+      "nome": "João",
+      "telefone": "9999-9999",
+      "email": "joao.teste@teste.com",
+      "endereco": "Rua teste, 123",
+      "salario": 1000.00,
+      "tipo_funcionario": "Pizzaiolo"
+    },
+    {
+      "id": 2,
+      "nome": "Maria",
+      "telefone": "8888-8888",
+      "email": "maria.teste@teste.com",
+      "endereco": "Rua teste, 123",
+      "salario": 2000.00,
+      "tipo_funcionario": "Auxiliar",
+    }
+  ],
+  "cliente": [
+    {
+      "id": 1,
+      "nome": "João",
+      "telefone": "9999-9999",
+      "email": "",
+      "endereco": "Rua teste, 123",
+    }
+  ],
+  "pizza": [
+    {
+      "id": 1,
+      "nome": "Calabresa",
+      "preco": "R$ 10,00",
+      "ingredientes": "Calabresa, queijo, presunto, orégano",
+      "tipo": "Pizza de atum",
+      "foto": "https://www.pizzahut.com.br/wcsstore/Pizzahut/images/catalog/pizzas/pizza-de-atum-calabresa-1.jpg"
+    },
+    {
+      "id": 2,
+      "nome": "Marguerita",
+      "preco": "R$ 10,00",
+      "ingredientes": "Marguerita, queijo, presunto, orégano",
+      "tipo": "Pizza de atum",
+      "foto": "https://www.pizzahut.com.br/wcsstore/Pizzahut/images/catalog/pizzas/pizza-de-atum-marguerita-1.jpg"
+    },
+    {
+      "id": 3,
+      "nome": "Portuguesa",
+      "preco": "R$ 10,00",
+      "ingredientes": "Portuguesa, queijo, presunto, orégano",
+      "tipo": "Pizza de atum",
+      "foto": "https://www.pizzahut.com.br/wcsstore/Pizzahut/images/catalog/pizzas/pizza-de-atum-portuguesa-1.jpg"
+    },
+    {
+      "id": 4,
+      "nome": "Calabresa",
+      "preco": "R$ 10,00",
+      "ingredientes": "Calabresa, queijo, presunto, orégano",
+      "tipo": "Pizza de atum",
+      "foto": "https://www.pizzahut.com.br/wcsstore/Pizzahut/images/catalog/pizzas"
+    }
+  ],
+  "ingrediente": [
+    {
+      "id": 1,
+      "nome": "Calabresa",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 2,
+      "nome": "Mussarela",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 3,
+      "nome": "Presunto",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 4,
+      "nome": "Milho",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 5,
+      "nome": "Orégano",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 6,
+      "nome": "Queijo Mussarela",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 8,
+      "nome": "Tomate",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 9,
+      "nome": "Bacon",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 10,
+      "nome": "Cebola",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 11,
+      "nome": "Azeitona",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 12,
+      "nome": "Pimentão",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 13,
+      "nome": "Orégano",
+      "preco_por_g": "R$ 10,00"
+    },
+    {
+      "id": 14,
+      "nome": "Queijo",
+      "preco_por_g": "R$ 10,00"
+    }
+  ],
+  ""
+}
