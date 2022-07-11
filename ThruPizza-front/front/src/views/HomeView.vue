@@ -5,7 +5,13 @@
       <v-row>
         <v-col cols="12">
           <v-card class="mx-auto rounded-xl" flat>
-            <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.jpg" max-height="100%" max-width="100%" > </v-img>
+            <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.jpg" max-height="100%" max-width="100%"> </v-img>
+            <v-card-title class="top ml-10">
+              <h2 class="title1">Order your</h2>
+            </v-card-title>
+            <v-card-tile class="ml-10 mt-n8">
+              <h2 class="title2">Daily Groceries</h2>
+            </v-card-tile>
           </v-card>
         </v-col>
       </v-row>
@@ -65,11 +71,17 @@ export default {
   .top {
     margin-top: 20px;
   }
+}
 
-  @media only screen and (min-width: 768px) {
-    .top {
-      margin-top: 120px;
-    }
+@media only screen and (min-width: 600px) {
+  .top {
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .top {
+    margin-top: 120px;
   }
 }
 </style>
