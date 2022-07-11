@@ -12,13 +12,11 @@ class ClienteService(private val repository: ClienteRepository) {
         return repository.save(cliente)
     }
 
-    fun getAll(): List<Cliente> {
-        return repository.findAll()
-    }
+    fun getAll(): List<Cliente> = repository.findAll()
 
-    fun getById(id: Long): Cliente? {
-        return repository.findByIdOrNull(id)
-    }
+    fun getById(id: Long): Cliente? = repository.findByIdOrNull(id)
+
+    fun getByEmail(email: String) : Cliente? = repository.findByEmail(email)
 
     fun update(cliente: Cliente): Cliente? {
         return repository.findById(cliente.clienteId!!).map {

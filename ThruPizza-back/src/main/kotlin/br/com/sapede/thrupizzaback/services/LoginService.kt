@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service
 class LoginService(val repository: ClienteRepository, val jwtUtils: JWTUtils){
 
     fun validarLogin(dto: LoginDto) : ResponseLoginDto? {
-        return when (val cliente = repository.findByEmail(dto.Email!!)) {
+        return when (val cliente = repository.findByEmail(dto.email!!)) {
             null -> null
-            else -> ResponseLoginDto(cliente.nome, cliente.email, jwtUtils.gerarToken(cliente.clienteId))
+            else -> ResponseLoginDto(cliente.nome, cliente.email, jwtUtils.gerarToken(cliente.email))
         }
     }
 }

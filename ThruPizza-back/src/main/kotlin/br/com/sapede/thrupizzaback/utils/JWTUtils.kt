@@ -2,18 +2,21 @@ package br.com.sapede.thrupizzaback.utils
 
 import br.com.sapede.thrupizzaback.chaveSeguranca
 import br.com.sapede.thrupizzaback.entities.Cliente
+import br.com.sapede.thrupizzaback.jwt_expiration
 import br.com.sapede.thrupizzaback.services.ClienteService
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.stereotype.Component
+import java.util.*
 
 @Component
 class JWTUtils(private val clienteService: ClienteService) {
 
-    fun gerarToken(clienteId: Long): String =
+    fun gerarToken(email: String): String =
         Jwts.builder()
-            .setSubject(clienteId.toString())
+            .setSubject(email)
+            .setExpiration(Date(System.currentTimeMillis() + jwt_expiration))
             .signWith(SignatureAlgorithm.HS512, chaveSeguranca.toByteArray())
             .compact()
 
@@ -21,9 +24,9 @@ class JWTUtils(private val clienteService: ClienteService) {
         val claims = getClaimsToken(token)
 
         if (claims != null) {
-            val clienteId = claims.subject
-            if (!clienteId.isNullOrEmpty() && !clienteId.isNullOrBlank()) {
-                return when (clienteService.getById(clienteId.toLong())) {
+            val email = claims.subject
+            if (!email.isNullOrEmpty() && !email.isNullOrBlank()) {
+                return when (clienteService.getByEmail(email)) {
                     null -> false
                     else -> true
                 }
@@ -43,9 +46,9 @@ class JWTUtils(private val clienteService: ClienteService) {
 
     fun getUsuario(token: String): Cliente? {
         val claims = getClaimsToken(token)
-        val clienteId = claims?.subject?.toLong() ?: return null
+        val email = claims?.subject?.toString() ?: return null
 
-        return when (val cliente = clienteService.getById(clienteId)) {
+        return when (val cliente = clienteService.getByEmail(email)) {
             null -> null
             else -> cliente
         }
