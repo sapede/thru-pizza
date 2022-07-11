@@ -5,14 +5,45 @@
       <v-row>
         <v-col cols="12">
           <v-card class="mx-auto rounded-xl" flat>
-            <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.jpg" max-height="100%" max-width="100%"> </v-img>
-            <v-card-title class="top ml-10">
-              <h2 class="title1">Order your</h2>
-            </v-card-title>
-            <v-card-tile class="ml-10 mt-n8">
-              <h2 class="title2">Daily Groceries</h2>
-            </v-card-tile>
+            <v-img src="@/assets/cover2.png" max-height="100%" max-width="100%" contain>
+              <v-card-title class="top ml-10">
+                <h2 class="title1">Order your</h2>
+              </v-card-title>
+              <v-card-title class="ml-10 mt-n8">
+                <h2 class="title2">Daily Groceries</h2>
+              </v-card-title>
+              <v-card-text class="ml-10">
+                <h3 class="green--text">#Free Delivery</h3>
+              </v-card-text>
+              <v-card-text class="ml-10">
+                <v-row>
+                  <v-col cols="4">
+                    <v-text-field label="Search your daily groceries" class="d-none d-sm-none d-md-flex" filled
+                      prepend-inner-icon="mdi-magnify" solo flat background-color="" rounded outlined success>
+                    </v-text-field>
+                  </v-col>
+                  <v-col cols="2" class="marginLeft">
+                    <v-btn color="green" rounded dark x-large class="py-7 d-none d-sm-none d-md-flex">
+                      search
+                    </v-btn>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-img>
           </v-card>
+          <v-toolbar flat color="transparent">
+            <v-toolbar-title class="text-h6">Category</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn-toggle v-model="toggle_exclusive" group color="#49D9A0">
+              <v-btn>
+                <v-icon>mdi-chevron-left</v-icon>
+              </v-btn>
+              <v-btn>
+                <v-icon>mdi-chevron-right</v-icon>
+              </v-btn>
+            </v-btn-toggle>
+          </v-toolbar>
+          <Category />
         </v-col>
       </v-row>
     </v-container>
@@ -21,16 +52,20 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue'
+import Category from '@/components/Category.vue'
 
 export default {
   name: 'Home',
-
+  data: () => ({
+    togle_exclusive: 1
+  }),
   components: {
-    Navbar
-  },
+    Navbar,
+    Category
+},
 }
 </script>
-<style>
+<style >
 .marginLeft {
   margin-left: -90px;
 }
