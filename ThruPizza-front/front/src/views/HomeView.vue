@@ -44,6 +44,12 @@
             </v-btn-toggle>
           </v-toolbar>
           <Category />
+          <v-toolbar flat color="transparent" class="mt-5">
+            <v-toolbar-title class="text-h6">Popular Product</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn rounded color="green" dark class="px-8">See All</v-btn>
+          </v-toolbar>
+          <Product />
         </v-col>
       </v-row>
     </v-container>
@@ -53,6 +59,7 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Category from '@/components/Category.vue'
+import Product from '@/components/Product.vue'
 
 export default {
   name: 'Home',
@@ -62,7 +69,7 @@ export default {
   components: {
     Navbar,
     Category
-},
+  },
 }
 </script>
 <style >
