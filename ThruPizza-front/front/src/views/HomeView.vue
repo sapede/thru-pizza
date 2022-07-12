@@ -50,6 +50,12 @@
             <v-btn rounded color="green" dark class="px-8">See All</v-btn>
           </v-toolbar>
           <Product />
+          <v-card flat color="#E2F2E5" class="rounded-xl mt-8">
+            <v-toolbar flat color="transparent" class="mb-4">
+              <v-toolbar-title class="text-h6 mt-5">Popular Bundle Pack</v-toolbar-title>
+            </v-toolbar>
+            <Pack />
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
@@ -60,6 +66,7 @@
 import Navbar from '@/components/Navbar.vue'
 import Category from '@/components/Category.vue'
 import Product from '@/components/Product.vue'
+import Pack from '@/components/Pack.vue'
 
 export default {
   name: 'Home',
@@ -68,8 +75,10 @@ export default {
   }),
   components: {
     Navbar,
-    Category
-  },
+    Category,
+    Product,
+    Pack
+},
 }
 </script>
 <style >
