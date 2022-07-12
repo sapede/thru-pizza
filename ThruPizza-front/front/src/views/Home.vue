@@ -5,7 +5,7 @@
       <v-row>
         <v-col cols="12">
           <v-card class="mx-auto rounded-xl" flat>
-            <v-img src="@/assets/cover2.png" max-height="100%" max-width="100%" contain>
+            <v-img src="cover2.png" max-height="100%" max-width="100%" contain>
               <v-card-title class="top ml-10">
                 <h2 class="title1">Order your</h2>
               </v-card-title>
@@ -43,7 +43,9 @@
               </v-btn>
             </v-btn-toggle>
           </v-toolbar>
+
           <Category />
+
           <v-toolbar flat color="transparent" class="mt-5">
             <v-toolbar-title class="text-h6">Popular Product</v-toolbar-title>
             <v-spacer></v-spacer>
@@ -53,51 +55,84 @@
           <v-card flat color="#E2F2E5" class="rounded-xl mt-8">
             <v-toolbar flat color="transparent" class="mb-4">
               <v-toolbar-title class="text-h6 mt-5">Popular Bundle Pack</v-toolbar-title>
+              <v-spacer></v-spacer>
             </v-toolbar>
             <Pack />
           </v-card>
           <v-card flat color="#FAFAFA" class="mt-8 py-5 px-16">
             <div style="
-            position: absolute; margin-left: auto; margin-right: auto; left: 0; right:0; text-align: center;
-            ">
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+              ">
               <h3>What Our Clients Say</h3>
             </div>
             <Client />
           </v-card>
           <v-toolbar flat color="transparent" class="mt-8">
-            <v-toolbar-title class="text-h6">
-              Our Trusted Partner
-            </v-toolbar-title>
+            <v-toolbar-title class="text-h6">Our Trusted Partner</v-toolbar-title>
           </v-toolbar>
           <Partner />
+          <v-card flat color="#E2F2E5" class="rounded-xl mtop mbottom mx-10 pa-4" height="350">
+            <v-row>
+              <v-col cols="12" xs="12" sm="12" md="5">
+                <v-card class="rounded-xl mt-n16 ml-16 mobile" outlined flat height="450" width="200">
+                  <v-img src="mobile.png"></v-img>
+                </v-card>
+              </v-col>
+              <v-col cols="12" xs="12" sm="6" md="7">
+                <h1 class="mt-16">Download App</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
+                  Provident sequi esse tempore maiores quasi quia non.<br />
+                  Itaque laboriosam dicta nostrum accusantium assumenda,<br />
+                  vitae ab ut vel tenetur minima natus commodi!
+                </p>
+                <v-btn color="black" dark class="mb-10">
+                  <v-icon color="white" left>fab fa-apple</v-icon>
+                  App Store
+                </v-btn>
+                <v-btn color="black" dark class="ml-4 mb-10">
+                  <v-icon color="white" left>fab fa-google-play</v-icon>
+                  Play Store
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
+    <Footer />
   </v-app>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
-import Category from '@/components/Category.vue'
-import Product from '@/components/Product.vue'
-import Pack from '@/components/Pack.vue'
-import Client from '@/components/Client.vue'
-import Partner from '@/components/Partner.vue'
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Category from "../components/Category.vue";
+import Product from "../components/Product.vue";
+import Pack from "../components/Pack.vue";
+import Client from "../components/Client.vue";
+import Partner from "../components/Partner.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   data: () => ({
-    togle_exclusive: 1
+    toggle_exclusive: 1,
   }),
   components: {
     Navbar,
+    Footer,
     Category,
     Product,
     Pack,
     Client,
-    Partner
+    Partner,
   },
-}
+};
 </script>
 <style >
 .marginLeft {
