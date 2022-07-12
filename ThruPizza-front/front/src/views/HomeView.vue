@@ -56,6 +56,20 @@
             </v-toolbar>
             <Pack />
           </v-card>
+          <v-card flat color="#FAFAFA" class="mt-8 py-5 px-16">
+            <div style="
+            position: absolute; margin-left: auto; margin-right: auto; left: 0; right:0; text-align: center;
+            ">
+              <h3>What Our Clients Say</h3>
+            </div>
+            <Client />
+          </v-card>
+          <v-toolbar flat color="transparent" class="mt-8">
+            <v-toolbar-title class="text-h6">
+              Our Trusted Partner
+            </v-toolbar-title>
+          </v-toolbar>
+          <Partner />
         </v-col>
       </v-row>
     </v-container>
@@ -67,6 +81,8 @@ import Navbar from '@/components/Navbar.vue'
 import Category from '@/components/Category.vue'
 import Product from '@/components/Product.vue'
 import Pack from '@/components/Pack.vue'
+import Client from '@/components/Client.vue'
+import Partner from '@/components/Partner.vue'
 
 export default {
   name: 'Home',
@@ -77,8 +93,10 @@ export default {
     Navbar,
     Category,
     Product,
-    Pack
-},
+    Pack,
+    Client,
+    Partner
+  },
 }
 </script>
 <style >
