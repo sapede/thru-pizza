@@ -12,19 +12,16 @@
         }}</v-card-title>
         <v-card-title class="mt-n4">{{ product.price }}</v-card-title>
 
-        <v-card-actions class="mx-2 mt-n4">
-          <v-btn outlined class="mt-n2 add">
-            <v-icon color="green" @click="decrement"> mdi-minus </v-icon>
+        <v-card-actions class="mx-2 mt-n4" >
+          <v-btn outlined class="mt-n2 add" @click="decrement(i)">
+            <v-icon color="green" > mdi-minus </v-icon>
           </v-btn>
 
-          <strong class="mx-2" v-text="bpm"></strong>
-          <v-btn outlined class="mt-n2 add">
-            <v-icon color="green" @click="increment"> mdi-plus </v-icon>
+          <strong class="mx-2" v-text="product.bpm"></strong>
+          <v-btn outlined class="mt-n2 add" @click="increment(i)">
+            <v-icon color="green" > mdi-plus </v-icon>
           </v-btn>
           <v-spacer></v-spacer>
-          <v-btn class="mx-2 mt-n3" fab dark small color="green">
-            <v-icon dark> mdi-shopping </v-icon>
-          </v-btn>
         </v-card-actions>
       </v-card>
     </v-col>
@@ -34,22 +31,23 @@
 <script>
 export default {
   data: () => ({
-    bpm: 1,
     products: [
-      { img: "pr1.png", title: "Cabbage", subtitle: "1kg", price: "$13" },
-      { img: "pr2.png", title: "Perry's Ice Cream", subtitle: "1kg", price: "$23" },
-      { img: "pr3.png", title: "Potato", subtitle: "1kg", price: "$17" },
-      { img: "pr4.png", title: "Bundle Pack", subtitle: "Potato, Papaya, Oil, Cabbage", price: "$40" },
-      { img: "pr5.png", title: "Oreo Biscuit", subtitle: "270GM", price: "$20" },
-      { img: "pr6.png", title: "Papaya", subtitle: "1kg", price: "$10" },
+      { img: "pr1.png", title: "Molho Tradicional", subtitle: "1kg", price: "$13" , bpm: 0},
+      { img: "pr2.png", title: "Perry's Ice Cream", subtitle: "1kg", price: "$23" , bpm: 0},
+      { img: "pr3.png", title: "Potato", subtitle: "1kg", price: "$17" , bpm: 0},
+      { img: "pr4.png", title: "Bundle Pack", subtitle: "Potato, Papaya, Oil, Cabbage", price: "$40" , bpm: 0},
+      { img: "pr5.png", title: "Oreo Biscuit", subtitle: "270GM", price: "$20" , bpm: 0},
+      { img: "pr6.png", title: "Papaya", subtitle: "1kg", price: "$10" , bpm: 0},
     ],
   }),
   methods: {
-    decrement() {
-      this.bpm--
+    decrement(i) {
+      if (this.products[i].bpm > 0){
+        this.products[i].bpm--
+      }
     },
-    increment() {
-      this.bpm++
+    increment(i) {
+      this.products[i].bpm++
     },
 
   },
