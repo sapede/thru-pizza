@@ -40,6 +40,3 @@ typings
 # .NET compiled files
 bin
 obj
-
-# Generated SQLite db
-WebApiDatabase.db

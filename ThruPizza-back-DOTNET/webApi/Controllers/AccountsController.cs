@@ -63,22 +63,6 @@ public class AccountsController : BaseController
     }
 
     [AllowAnonymous]
-    [HttpPost("verify-email")]
-    public IActionResult VerifyEmail(VerifyEmailRequest model)
-    {
-        _accountService.VerifyEmail(model.Token);
-        return Ok(new { message = "Verification successful, you can now login" });
-    }
-
-    [AllowAnonymous]
-    [HttpPost("forgot-password")]
-    public IActionResult ForgotPassword(ForgotPasswordRequest model)
-    {
-        _accountService.ForgotPassword(model, Request.Headers["origin"]);
-        return Ok(new { message = "Please check your email for password reset instructions" });
-    }
-
-    [AllowAnonymous]
     [HttpPost("validate-reset-token")]
     public IActionResult ValidateResetToken(ValidateResetTokenRequest model)
     {
