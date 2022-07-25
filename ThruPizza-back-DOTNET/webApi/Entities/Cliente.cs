@@ -1,10 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace WebApi.Entities;
 
-public class Account
-{
-    public int Id { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+public class Cliente
+{    
+    [Key]
+    public int ClienteId { get; set; }
+    public string Nome { get; set; }
     public string Email { get; set; }
     public string PasswordHash { get; set; }
     public Role Role { get; set; }
@@ -14,10 +16,10 @@ public class Account
     public DateTime? PasswordReset { get; set; }
     public DateTime Created { get; set; }
     public DateTime? Updated { get; set; }
-    public List<RefreshToken> RefreshTokens { get; set; }
+    public ICollection<RefreshToken> RefreshTokens { get; set; }
 
     public bool OwnsToken(string token) 
     {
-        return this.RefreshTokens?.Find(x => x.Token == token) != null;
+        return this.RefreshTokens?.Where(x => x.Token == token) != null;
     }
 }

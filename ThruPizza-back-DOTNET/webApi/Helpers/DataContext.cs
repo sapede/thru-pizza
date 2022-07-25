@@ -5,7 +5,13 @@ using WebApi.Entities;
 
 public class DataContext : DbContext
 {
-    public DbSet<Account> Accounts { get; set; }
+    public DbSet<Cliente> Clientes { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
+    public DbSet<Funcionario> Funcionarios { get; set; }
+    public DbSet<Pedido> Pedidos { get; set; }
+    public DbSet<Receita> Receitas { get; set; }
+    public DbSet<Ingrediente> Ingredientes { get; set; }
+    public DbSet<Pizza> Pizzas { get; set; }
     
     private readonly IConfiguration Configuration;
 
@@ -13,6 +19,7 @@ public class DataContext : DbContext
     {
         Configuration = configuration;
     }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {

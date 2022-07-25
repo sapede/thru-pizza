@@ -17,11 +17,11 @@ public class JwtMiddleware
     public async Task Invoke(HttpContext context, DataContext dataContext, IJwtUtils jwtUtils)
     {
         var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-        var accountId = jwtUtils.ValidateJwtToken(token);
-        if (accountId != null)
+        var clienteId = jwtUtils.ValidateJwtToken(token);
+        if (clienteId != null)
         {
             // attach account to context on successful jwt validation
-            context.Items["Account"] = await dataContext.Accounts.FindAsync(accountId.Value);
+            context.Items["Cliente"] = await dataContext.Clientes.FindAsync(clienteId.Value);
         }
 
         await _next(context);

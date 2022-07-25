@@ -1,12 +1,11 @@
-namespace WebApi.Models.Accounts;
+namespace WebApi.Models.Clientes;
 
 using System.Text.Json.Serialization;
 
 public class AuthenticateResponse
 {
-    public int Id { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+    public int ClienteId { get; set; }
+    public string Nome { get; set; }
     public string Email { get; set; }
     public string Role { get; set; }
     public DateTime Created { get; set; }

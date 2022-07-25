@@ -2,22 +2,22 @@ namespace WebApi.Helpers;
 
 using AutoMapper;
 using WebApi.Entities;
-using WebApi.Models.Accounts;
+using WebApi.Models.Clientes;
 
 public class AutoMapperProfile : Profile
 {
     // mappings between model and entity objects
     public AutoMapperProfile()
     {
-        CreateMap<Account, AccountResponse>();
+        CreateMap<Cliente, ClienteResponse>();
 
-        CreateMap<Account, AuthenticateResponse>();
+        CreateMap<Cliente, AuthenticateResponse>();
 
-        CreateMap<RegisterRequest, Account>();
+        CreateMap<ClienteRegisterRequest, Cliente>();
 
-        CreateMap<CreateRequest, Account>();
+        CreateMap<ClienteCreateRequest, Cliente>();
 
-        CreateMap<UpdateRequest, Account>()
+        CreateMap<ClienteUpdateRequest, Cliente>()
             .ForAllMembers(x => x.Condition(
                 (src, dest, prop) =>
                 {

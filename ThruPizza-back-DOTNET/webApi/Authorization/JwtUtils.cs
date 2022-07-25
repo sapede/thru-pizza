@@ -11,7 +11,7 @@ using WebApi.Helpers;
 
 public interface IJwtUtils
 {
-    public string GenerateJwtToken(Account account);
+    public string GenerateJwtToken(Cliente cliente);
     public int? ValidateJwtToken(string token);
     public RefreshToken GenerateRefreshToken(string ipAddress);
 }
@@ -29,14 +29,14 @@ public class JwtUtils : IJwtUtils
         _appSettings = appSettings.Value;
     }
 
-    public string GenerateJwtToken(Account account)
+    public string GenerateJwtToken(Cliente cliente)
     {
         // generate token that is valid for 15 minutes
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(new[] { new Claim("id", account.Id.ToString()) }),
+            Subject = new ClaimsIdentity(new[] { new Claim("id", cliente.ClienteId.ToString()) }),
             Expires = DateTime.UtcNow.AddMinutes(15),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
@@ -64,10 +64,10 @@ public class JwtUtils : IJwtUtils
             }, out SecurityToken validatedToken);
 
             var jwtToken = (JwtSecurityToken)validatedToken;
-            var accountId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+            var clienteId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
-            // return account id from JWT token if validation successful
-            return accountId;
+            // return cliente id from JWT token if validation successful
+            return clienteId;
         }
         catch
         {
@@ -89,7 +89,7 @@ public class JwtUtils : IJwtUtils
         };
 
         // ensure token is unique by checking against db
-        var tokenIsUnique = !_context.Accounts.Any(a => a.RefreshTokens.Any(t => t.Token == refreshToken.Token));
+        var tokenIsUnique = !_context.RefreshTokens.Any(a => a.Token == refreshToken.Token);
 
         if (!tokenIsUnique)
             return GenerateRefreshToken(ipAddress);

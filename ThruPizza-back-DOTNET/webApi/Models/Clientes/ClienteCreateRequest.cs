@@ -1,15 +1,19 @@
-namespace WebApi.Models.Accounts;
+namespace WebApi.Models.Clientes;
 
 using System.ComponentModel.DataAnnotations;
+using WebApi.Entities;
 
-public class RegisterRequest
+public class ClienteCreateRequest
 {
-
     [Required]
     public string FirstName { get; set; }
 
     [Required]
     public string LastName { get; set; }
+
+    [Required]
+    [EnumDataType(typeof(Role))]
+    public string Role { get; set; }
 
     [Required]
     [EmailAddress]
